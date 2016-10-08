@@ -36,8 +36,12 @@ def isort(text_range):
     blank_lines_at_end = count_blank_lines_at_end(text_range)
     old_text = '\n'.join(text_range)
 
+    # get the configuration
+    config = vim.eval('g:isort_options')
+    print(config)
+
     # sort the imports
-    new_text = SortImports(file_contents=old_text).output
+    new_text = SortImports(file_contents=old_text, **config).output
     new_lines = new_text.split('\n')
 
     # remove empty lines wrongfully added
