@@ -1,3 +1,5 @@
+This project is a fork that adds the ability to configure ``isort`` from your vim configuration.
+
 vim-isort
 =========
 
@@ -7,10 +9,7 @@ Vim plugin to sort python imports using `isort <https://github.com/timothycrosle
 Usage
 =====
 
-Just call the ``:Isort`` command, and it will reorder the imports of the current python file.
-Or select a block of imports with visual mode, and press ``Ctrl-i`` to sort them.
-
-You can also configure isort options, check them on the `isort docs <https://github.com/timothycrosley/isort>`_.
+Call the ``:Isort`` command, which will re-oreder the imports of the current Python file.
 
 
 Installation
@@ -26,21 +25,19 @@ Installation
 
 .. code::
 
-    Plugin 'fisadev/vim-isort'
+    Plugin 'Photonios/vim-isort'
 
 (Or if you don't use any plugin manager, you can just copy the ``python_vimisort.vim`` file to your ``.vim/ftplugin`` folder)
 
 Configuration
 =============
 
-You can configure the default mapping for the visual mode sorter, like this:
+You can pass any configuration option for ``isort`` by setting ``g:isort_options``:
 
 .. code-block:: viml
 
-    let g:vim_isort_map = '<C-i>'
+    let g:isort_options = {
+      \ 'line_length': 10,
+      \ }
 
-Or disable the mapping with this:
-
-.. code-block:: viml
-
-    let g:vim_isort_map = ''
+See a full list of options for ``isort`` here: https://github.com/timothycrosley/isort#configuring-isort
